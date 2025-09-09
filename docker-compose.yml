@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  frontend:
+    build: ./frontend
+    container_name: cyber-frontend
+    ports:
+      - "3000:80"
+
+  backend:
+    build: ./backend
+    container_name: cyber-backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - zap
+
+  zap:
+    image: ghcr.io/zaproxy/zaproxy:stable
+    container_name: zap-scanner
+    ports:
+      - "8090:8090"
+    command: zap.sh -daemon -host 0.0.0.0 -port 8090
