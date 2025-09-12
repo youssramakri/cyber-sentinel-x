@@ -1,0 +1,4 @@
+echo flask==2.3.3 > requirements.txt
+echo flask-cors==4.0.0 >> requirements.txt
+echo requests==2.31.0 >> requirements.txt
+echo python-dotenv==1.0.0 >> requirements.txt
